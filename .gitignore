@@ -1,0 +1,6 @@
+.copilot-azure/
+.playwright-mcp/
+.env
+Self-Hosted-Application-Implementation-Report.*
+report-*.png
+~$*

@@ -1,0 +1,22 @@
+services:
+  dashboard:
+    build: .
+    container_name: homebase-dashboard
+    restart: unless-stopped
+    expose:
+      - "80"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: homebase-cloudflared
+    restart: unless-stopped
+    network_mode: "service:dashboard"
+    command:
+      - tunnel
+      - --no-autoupdate
+      - run
+      - --token
+      - ${CLOUDFLARE_TUNNEL_TOKEN:?Set CLOUDFLARE_TUNNEL_TOKEN in the .env file}
+    depends_on:
+      dashboard:
+        condition: service_healthy

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your birth year from your age">
+    <title>When Were You Born?</title>
+    <link rel="stylesheet" href="birth-year.css">
+    <script src="birth-year.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <section class="calculator" aria-labelledby="page-title">
+        <div class="intro">
+          <span class="mark" aria-hidden="true">✦</span>
+          <p class="eyebrow">A tiny year calculator</p>
+          <h1 id="page-title">When were<br>you born?</h1>
+          <p class="lede">Enter your age and tell us whether you have celebrated your birthday this year.</p>
+        </div>
+
+        <form id="birth-year-form" novalidate>
+          <label class="field" for="age">
+            <span>How old are you?</span>
+            <span class="input-wrap">
+              <input id="age" name="age" type="number" min="0" max="130" step="1" inputmode="numeric" placeholder="32" required>
+              <span>years old</span>
+            </span>
+            <small id="age-error" class="error" aria-live="polite"></small>
+          </label>
+
+          <fieldset>
+            <legend>Have you had your birthday this year?</legend>
+            <div class="choices">
+              <label>
+                <input type="radio" name="birthdayPassed" value="yes" required>
+                <span>Yes, I have</span>
+              </label>
+              <label>
+                <input type="radio" name="birthdayPassed" value="no">
+                <span>Not yet</span>
+              </label>
+            </div>
+            <small id="birthday-error" class="error" aria-live="polite"></small>
+          </fieldset>
+
+          <button type="submit">Reveal my birth year <span aria-hidden="true">→</span></button>
+        </form>
+
+        <section id="result" class="result" aria-live="polite" hidden>
+          <p>You were born in</p>
+          <strong id="birth-year"></strong>
+          <span id="result-detail"></span>
+          <button id="start-over" type="button">Calculate another age</button>
+        </section>
+      </section>
+
+      <footer>
+        <span>Private by design</span>
+        <span>Your answers never leave this browser.</span>
+      </footer>
+    </main>
+  </body>
+</html>

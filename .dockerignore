@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env
+.copilot-azure
+.playwright-mcp
+Self-Hosted-Application-Implementation-Report.*
+report-*.png
+~$*
+README.md
+compose.yaml
